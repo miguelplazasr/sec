@@ -4,7 +4,7 @@ _homepage:
 
 sec_admin:
     resource: "@SECSolicitudesBundle/Resources/config/routing.yml"
-    prefix:   /admin/
+    prefix:   /
     
 login:
     pattern: /admin/login

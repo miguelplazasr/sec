@@ -1,3 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="clear"></div>
+
+    <article class="module width_full">
+
 <h1>Tipo creation</h1>
 
 <form action="{{ path('tipo_create') }}" method="post" {{ form_enctype(form) }}>
@@ -14,3 +21,6 @@
         </a>
     </li>
 </ul>
+
+    </article>
+{% endblock %}
