@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block breadcrumbs %}
+<div class="breadcrumb_divider"></div>
+<a >
+{{ wo_render_breadcrumbs() }}
+    </a>
+{% endblock %}
+
+{% block body %}
+<article class="module width_full">
+        <header><h3 class="tabs_involved">Lista de Usuarios</h3>
+        </header>
+
+<div class="tab_container">
+            <div id="tab1" class="tab_content">
+<table class="tablesorter" cellspacing="0"> 
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td>{{ entity.id }}</td>
+            <td><a href="{{ path('admin_user_show', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+            <td>
+                <a href="{{ path('admin_user_edit', { 'id': entity.id }) }}"><img src="../../images/icn_edit.png" title="Editar"/></a>
+                
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+                </div></div>
+
+
+        </article>
+
+
+{% endblock %}

@@ -1,0 +1,7 @@
+calculoFecha_ajax:
+    pattern:  /calculoFecha
+    defaults: { _controller: 'SECSolicitudesBundle:Ajax:getDiasHabiles'}
+    
+alerta_ajax:
+    pattern:  /alertaUno
+    defaults: { _controller: 'SECSolicitudesBundle:Ajax:getAlerta'}

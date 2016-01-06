@@ -1,0 +1,25 @@
+   
+_proceso:
+    resource: "@SECSolicitudesBundle/Resources/config/routing/proceso.yml"
+    prefix:   proceso/
+    
+_user:
+    resource: "@SECSolicitudesBundle/Resources/config/routing/user.yml"
+    prefix:   user/
+    
+_asignacion:
+    resource: "@SECSolicitudesBundle/Resources/config/routing/asignacion.yml"
+    prefix:   asignacion/
+    
+_entecontrol:
+    resource: "@SECSolicitudesBundle/Resources/config/routing/entecontrol.yml"
+    prefix:   entecontrol/
+    
+_ajax:
+    resource: "@SECSolicitudesBundle/Resources/config/routing/ajax.yml"
+    prefix: ajax/
+    
+SECAnnotations:
+    resource: "@SECSolicitudesBundle/Controller/"
+    prefix:   /
+    type:     annotation

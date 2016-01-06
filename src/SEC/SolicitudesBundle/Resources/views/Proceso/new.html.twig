@@ -1,0 +1,161 @@
+{% extends '::base.html.twig' %}
+
+{% block js %}
+    <script type="text/javascript">
+        
+        function aButtonPressed(){
+            
+                var fechaInicio = $('#proceso_asignaciones_fechaRecSDA').val();
+                var diasRespuesta = $('#proceso_asignaciones_diasrespuesta').val();
+                
+                $.post( '{{ path('calculoFecha_ajax') }}', {
+                    fechaRecSDA: fechaInicio,
+                    diasResponder: diasRespuesta
+                },
+                    function(response) {
+                        $('#proceso_asignaciones_fechamaxrespuesta').val(response);
+                    }, "json"
+                        
+                );
+}
+
+    function alerta(porcentajealerta, input) {
+        var valFechaInicio = $('#proceso_asignaciones_fechaRecSDA').val();
+        var valDias = $('#proceso_asignaciones_diasrespuesta').val();
+        
+        $.post( '{{ path('alerta_ajax') }}', {
+                fechaInicio: valFechaInicio,
+                dias: valDias,
+                porcentaje: porcentajealerta
+            },
+                function(response) {
+                    $(input).val(response);
+            }, "json");
+        }
+
+        $(document).ready(function() {            
+            
+            $('#proceso_asignaciones_diasrespuesta').change(function() {
+                aButtonPressed();
+                alerta(0.3,'#proceso_asignaciones_alerta1');
+                alerta(0.5,'#proceso_asignaciones_alerta2');
+            })
+            
+            
+            
+            
+        });
+        
+    </script>
+{% endblock %} 
+
+{% block breadcrumbs %}
+    
+{% endblock %}
+
+{% block body %}
+   
+<div class="clear"></div>
+
+<article class="module width_full">
+    <header><h3>Nuevo Proceso</h3></header>
+   
+    
+    <form action="{{ path('proceso_create') }}" method="post" {{ form_enctype(form) }}>
+        <div class="validation">{{ form_errors(form) }}</div>
+            <div class="module_content">
+                
+                <fieldset  style="width:48%; float:left; margin-right: 3%;">
+                    <label>Tipo</label>
+                    {{ form_widget(form.tipo) }}
+                    <div class="validation">{{ form_errors(form.tipo) }}</div>
+                </fieldset>
+                
+                <fieldset  style="width:48%; float:right;">
+                    <label>Ente de control</label>
+                    {{ form_widget(form.entecontrol) }}
+                    <div class="validation">{{ form_errors(form.entecontrol) }}</div>
+                </fieldset>
+
+                <fieldset>
+                    <label>Titulo</label>
+                    {{ form_widget(form.titulo) }}
+                    <div class="validation">{{ form_errors(form.titulo) }}</div>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Resumen</label>
+                    {{ form_widget(form.resumen) }}
+                    <div class="validation">{{ form_errors(form.resumen) }}</div>
+                </fieldset>
+                
+                <fieldset>
+                    <label>Informaci&oacute;n Adicional</label>
+                    {{ form_widget(form.infoadicional) }}
+                    <div class="validation">{{ form_errors(form.resumen) }}</div>
+                </fieldset>
+                
+                <fieldset>
+                    <label >No. Radicado</label>
+                    {{ form_widget(form.noradicado) }}
+                    <div class="validation">{{ form_errors(form.noradicado) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:45%; float:left; margin-right: 3%;">
+                    <label>Fecha Recepción SDA</label>
+                    {{ form_widget(form.fechaRecSDA) }}
+                    <div class="validation">{{ form_errors(form.fechaRecSDA) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:45%; float:left; margin-right: 3%;">
+                    <label>Fecha Recepción SER</label>
+                    {{ form_widget(form.fechaRecSER) }}
+                    <div class="validation">{{ form_errors(form.fechaRecSER) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:45%; float:left; margin-right: 3%;">
+                    <label>Dias para responder</label>
+                    {{ form_widget(form.diasrespuesta) }}
+                    <div class="validation">{{ form_errors(form.diasrespuesta) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:48%; float:right; margin-right: 3%;">
+                    <label>Fecha de respuesta</label>
+                    {{ form_widget(form.fechamaxrespuesta) }}
+                    <div class="validation">{{ form_errors(form.fechamaxrespuesta) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:40%; float:left; margin-right: 3%;">
+                    <label>Fecha Alerta 1</label>
+                    {{ form_widget(form.alerta1) }}
+                    <div class="validation">{{ form_errors(form.alerta1) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:40%; float:left; margin-right: 3%;">
+                    <label>Fecha Alerta 2</label>
+                    {{ form_widget(form.alerta2) }}
+                    <div class="validation">{{ form_errors(form.alerta2) }}</div>
+                </fieldset>
+                
+                <div class="clear"></div>
+                </div>
+              
+                
+    {{ form_rest(form) }}
+               
+               
+
+            
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Crear" class="alt_btn">
+                    <!-- <button class="alt_btn" type="submit">Crear</button> -->
+                    
+
+                </div>
+            </footer>
+
+</form>
+    </article>
+
+{% endblock %}

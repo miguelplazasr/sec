@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+<article class="module width_full">
+    <header><h3 class="tabs_involved">Tipo</h3>
+    </header>
+
+    <div class="tab_container">
+        <div id="tab1" class="tab_content">
+            <table class="tablesorter" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Descripcion</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+    {% for entity in entities %}
+                        <tr>
+                            <td><a href="{{ path('tipo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.descripcion }}</td>
+                            <td>
+                                <a href="{{ path('tipo_show', { 'id': entity.id }) }}">show</a>
+                                <a href="{{ path('tipo_edit', { 'id': entity.id }) }}"><img src="../../images/icn_edit.png" title="Editar"/></a>
+                            </td>
+                        </tr>
+    {% endfor %}
+                    </tbody>
+                </table>
+
+                <footer>
+                    <div class="submit_link">
+                        <ul>
+                            <li>
+                                <a class="btn" href="{{ path('tipo_new') }}">
+                                    Create a new entry
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+                
+            </div>
+        </div>
+    </article>
+{% endblock %}

@@ -1,0 +1,30 @@
+_homepage:
+    pattern:  /
+    defaults: { _controller: SECSolicitudesBundle:Default:index }
+
+sec_admin:
+    resource: "@SECSolicitudesBundle/Resources/config/routing.yml"
+    prefix:   /admin/
+    
+login:
+    pattern: /admin/login
+    defaults: { _controller: SECSolicitudesBundle:Security:login }
+ 
+login_check:
+    pattern: /admin/login_check
+ 
+logout:
+    pattern: /admin/logout
+    
+
+#fp_openid_security:
+#    resource: "@FpOpenIdBundle/Resources/config/routing/security.xml"
+
+# Internal routing configuration to handle ESI
+# ****** WARNING ******
+# This route should be enabled with caution as it can open a security vulnerability
+# see http://symfony.com/blog/security-release-symfony-2-0-20-and-2-1-5-released for more information
+# ****** WARNING ******
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal

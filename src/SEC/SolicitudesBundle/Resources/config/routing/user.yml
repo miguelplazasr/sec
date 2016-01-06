@@ -1,0 +1,35 @@
+#
+# Rutas de las users
+#
+
+user_list:
+    pattern:  /list
+    defaults: { _controller: "SECSolicitudesBundle:User:list" }
+    
+user_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SECSolicitudesBundle:User:show" }
+    
+user_new:
+    pattern:  /new
+    defaults: { _controller: "SECSolicitudesBundle:User:new" }
+    
+user_create:
+    pattern:  /create
+    defaults: { _controller: "SECSolicitudesBundle:User:create" }
+    requirements: { _method: post }
+    
+user_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: "SECSolicitudesBundle:User:edit" }
+    
+user_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SECSolicitudesBundle:User:update" }
+    requirements:  { _method: post }
+   
+user_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SECSolicitudesBundle:User:delete" }
+    requirements: { _method: post }
+    

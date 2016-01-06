@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block js %}
+
+{% endblock %} 
+
+{% block body %}
+
+<div class="clear"></div>
+
+<article class="module width_full">
+    <header><h3>Nuevo Ente Control</h3></header>
+   
+    
+    <form action="{{ path('entecontrol_create') }}" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }}
+            <div class="module_content">
+
+                <fieldset>
+                    <label>Ente de Control</label>
+                    {{ form_widget(form.nombre) }}
+                </fieldset>
+                
+                <div class="clear"></div>
+                </div>
+               
+                
+                    
+
+    {{ form_widget(form) }}
+
+    {{ form_rest(form) }}
+               
+               
+
+            
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Crear" class="alt_btn">
+                    <!-- <button class="alt_btn" type="submit">Crear</button> -->
+                    
+
+                </div>
+            </footer>
+</form>
+    </article>
+
+{% endblock %}
