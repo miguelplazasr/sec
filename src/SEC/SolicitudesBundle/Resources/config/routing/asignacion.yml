@@ -1,0 +1,31 @@
+asignacion_list:
+    pattern:  /list
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:list" }
+    
+asignacion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:show" }
+    
+asignacion_new:
+    pattern:  /new
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:new" }
+    
+asignacion_create:
+    pattern:  /create
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:create" }
+    requirements: { _method: post }
+    
+asignacion_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:edit" }
+    
+asignacion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:update" }
+    requirements:  { _method: post }
+   
+asignacion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SECSolicitudesBundle:Asignacion:delete" }
+    requirements: { _method: post }
+    

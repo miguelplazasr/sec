@@ -1,0 +1,31 @@
+proceso_list:
+    pattern:  /list
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:list" }
+    
+proceso_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:show" }
+    
+proceso_new:
+    pattern:  /new
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:new" }
+    
+proceso_create:
+    pattern:  /create
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:create" }
+    requirements: { _method: post }
+    
+proceso_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:edit" }
+    
+proceso_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:update" }
+    requirements:  { _method: post }
+   
+proceso_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SECSolicitudesBundle:Proceso:delete" }
+    requirements: { _method: post }
+    

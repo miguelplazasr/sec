@@ -1,0 +1,108 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<div class="clear"></div>
+
+<article class="module width_full">
+    <header><h3>Editar Proceso</h3></header>
+
+<form action="{{ path('proceso_edit', { 'id': proceso.id }) }}" method="post" {{ form_enctype(form) }}>
+{{ form_errors(form) }}
+            <div class="module_content">
+
+                <fieldset>
+                    <label>Tipo</label>
+                    {{ form_widget(form.tipo) }}
+                </fieldset>
+
+                <fieldset>
+                    <label>Ente de Control</label>
+                    {{ form_widget(form.entecontrol) }}
+                </fieldset>
+
+                <fieldset>
+                    <label>Titulo</label>
+                    {{ form_widget(form.titulo) }}
+                </fieldset>
+                
+                <fieldset>
+                    <label>Resumen</label>
+                    {{ form_widget(form.resumen) }}
+                </fieldset>
+                
+                <fieldset>
+                    <label>Informaci&oacute;n Adicional</label>
+                    {{ form_widget(form.infoadicional) }}
+                </fieldset>
+                
+                <fieldset>
+                    <label>No. Radicado</label>
+                    {{ form_widget(form.noradicado) }}
+                </fieldset>
+                
+                <fieldset style="width:43%; float:left; margin-right: 3%;">
+                    <label>Fecha Recepción SDA</label>
+                    {{ form_widget(form.fechaRecSDA) }}
+                </fieldset>
+                
+                <fieldset style="width:43%; float:left; margin-right: 3%;">
+                    <label>Fecha Recepción SER</label>
+                    {{ form_widget(form.fechaRecSER) }}
+                </fieldset>
+                
+                <fieldset style="width:45%; float:left; margin-right: 3%;">
+                    <label>Dias para responder</label>
+                    {{ form_widget(form.diasrespuesta) }}
+                    <div class="validation">{{ form_errors(form.diasrespuesta) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:45%; float:right; margin-right: 3%;">
+                    <label>Fecha de respuesta</label>
+                    {{ form_widget(form.fechamaxrespuesta) }}
+                    <div class="validation">{{ form_errors(form.fechamaxrespuesta) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:45%; float:left; margin-right: 3%;">
+                    <label>Alerta 1</label>
+                    {{ form_widget(form.alerta1) }}
+                    <div class="validation">{{ form_errors(form.alerta1) }}</div>
+                </fieldset>
+                
+                <fieldset style="width:45%; float:right; margin-right: 3%;">
+                    <label>ALERTA 2</label>
+                    {{ form_widget(form.alerta2) }}
+                    <div class="validation">{{ form_errors(form.alerta2) }}</div>
+                </fieldset>
+                
+                <div class="clear"></div>
+                </div>
+               
+
+
+               <!-- <td>{ form_widget(form.per1) }}<div class="validation">{ form_errors(form.per1) }}</div></td> -->
+
+
+
+    {{ form_widget(form) }}
+
+    {{ form_rest(form) }}
+
+            
+            <footer>
+                <div class="submit_link">
+                    <input type="submit" value="Guardar Cambios" class="alt_btn">
+                    <a href="{{ path('proceso_list') }}">Volver al listado</a>
+                    <!-- <button class="alt_btn" type="submit">Crear</button> -->
+                    </form>
+
+                </div>
+            </footer>
+
+    </article>
+
+
+</form>
+
+
+
+{% endblock %}

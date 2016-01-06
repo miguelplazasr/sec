@@ -1,0 +1,79 @@
+{% extends '::base.html.twig' %}
+{% block breadcrumbs %}
+<div class="breadcrumb_divider"></div>
+<a >
+{{ wo_render_breadcrumbs() }}
+    </a>
+{% endblock %}
+
+{% block body %}
+
+    <article class="module width_full">
+        <header><h3 class="tabs_involved">Control de Procesos</h3>
+        </header>
+
+
+
+
+        <div class="tab_container">
+            <div id="tab1" class="tab_content">
+                <table class="tablesorter" cellspacing="0"> 
+                    <thead> 
+                        <tr> 
+                            <th></th> 
+                            <th>Proceso</th> 
+                            <th>Fecha Recepcion SDA</th> 
+                            <th>Fecha Recepcion SER</th> 
+                            <th>Fecha Respuesta</th>
+                            <th>Alerta 1</th>
+                            <th>Alerta 2</th> 
+                            <th>Acciones</th>
+                        </tr> 
+                    </thead> 
+                    <tbody> 
+
+                            {% for proceso in pagination %}
+                        <tr
+                        {% if ( date("now")  <  date(proceso.alerta1) ) %}
+                                class="semaforo_verde"
+                        {% endif %}
+                                
+                        {% if ( date("now")  >=  date(proceso.alerta1)
+                                and date("now")  <  date(proceso.alerta2) ) %}
+                                class="semaforo_amarillo"
+                        {% endif %}
+                                
+                        {% if ( date("now")  >=  date(proceso.alerta2) ) %}
+                                class="semaforo_rojo"
+                        {% endif %}
+                                >
+                                <td>{{ proceso.id }}</td>
+                                <td>{{ proceso.titulo }}</td>
+                                <td>{{ proceso.fechaRecSDA | date("d-M-Y") }}</td>
+                                <td>{{ proceso.fechaRecSER | date("d-M-Y") }}</td>
+                                <td>{{ proceso.fechamaxrespuesta | date("d-M-Y") }}</td>
+                                <td>{{ proceso.alerta1|date('d-M-Y') }}</td>
+                                <td>{{ proceso.alerta2|date('d-M-Y') }}</td><td><a href="{{ path('proceso_edit', { 'id': proceso.id} ) }}"><img src="../../images/icn_edit.png" title="Editar"/></a>
+                                    <input type="image" src="../../images/icn_trash.png" title="Trash"></td> 
+                                
+                            </tr>
+                            {% endfor %}
+
+
+                        </tbody>
+                        <tfoot>
+                        <div class="navigation">
+                        </div>
+                        </tfoot>
+                    </table>
+                </div></div>
+
+
+        </article><!-- end of content manager article -->
+
+
+
+
+
+        <p></p>
+{% endblock %}

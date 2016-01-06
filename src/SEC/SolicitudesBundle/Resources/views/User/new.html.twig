@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+<div class="clear"></div>
+
+<article class="module width_full">
+    <header><h3>Nuevo Usuario</h3></header>
+   
+<form action="{{ path('admin_user_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    
+        <footer>
+        <div class="submit_link">
+        <button type="submit" class="alt_btn">Crear</button>
+        <a href="{{ path('admin_user') }}">
+            Back to the list
+        </a> 
+        </div>
+
+    </footer>
+    </form>
+</article>
+{% endblock %}
