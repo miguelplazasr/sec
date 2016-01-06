@@ -29,10 +29,10 @@ public function listAction() {
         $em = $this->get('doctrine')->getEntityManager();
         $procesos = $em->getRepository('SECSolicitudesBundle:Proceso')->findAll();
 
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-                $procesos, $this->get('request')->query->get('page', 1), 2
-        );
+        //$paginator = $this->get('knp_paginator');
+        //$pagination = $paginator->paginate(
+        //        $procesos, $this->get('request')->query->get('page', 1), 2
+        //);
 
         
         return $this->render('SECSolicitudesBundle:Proceso:list.html.twig', array(
