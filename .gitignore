@@ -9,8 +9,6 @@
 /bin/
 /composer.phar
 /vendor/
-/vagrant/
-vagrant
 /web/bower_components/
 /web/images/node_modules/
 /web/bundles/
