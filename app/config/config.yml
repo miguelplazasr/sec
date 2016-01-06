@@ -74,16 +74,16 @@ white_october_breadcrumbs: ~
            
 # Paginacion
 
-knp_paginator:
-    page_range: 10                      # default page range used in pagination control
-    default_options:
-        page_name: pagina                # page query parameter name
-        sort_field_name: ordenar          # sort field query parameter name
-        sort_direction_name: direccion # sort direction query parameter name
-        distinct: false                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
-    template:
-        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
-        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
+#knp_paginator:
+#    page_range: 10                      # default page range used in pagination control
+#    default_options:
+#        page_name: pagina                # page query parameter name
+#        sort_field_name: ordenar          # sort field query parameter name
+#        sort_direction_name: direccion # sort direction query parameter name
+#        distinct: false                 # ensure distinct results, useful when ORM queries are using GROUP BY statements
+#    template:
+#        pagination: KnpPaginatorBundle:Pagination:sliding.html.twig     # sliding pagination controls template
+#        sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig # sort link template
         
 # OpenId autecticación en Gmail
 
